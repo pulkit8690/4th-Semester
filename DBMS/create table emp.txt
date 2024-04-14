@@ -1,0 +1,14 @@
+create table emp 
+    ( 
+    	empno number primary key, 
+        ename varchar(20), 
+        job varchar(10), 
+        sal number(10), 
+        deptno number 
+    );
+insert into emp values(1,'Pulkit','Ceo',100000,51);
+insert into emp values(2,'Ishaan','Ass HR',50000,52);
+insert into emp values(3,'Abhinav','HR',40000,53);
+insert into emp values(4,'Geet','manager',10000,54);
+insert into emp values(5,'Sehaj','manager',50000,55);
+insert into emp values(6,'haj','mager',5000,55);

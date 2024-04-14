@@ -1,0 +1,7 @@
+create table table1 
+( 
+    id number(20), 
+    name varchar(30), 
+    city varchar (25) 
+);
+desc table1;

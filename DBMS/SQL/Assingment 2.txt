@@ -1,0 +1,48 @@
+create table Emp
+(
+    Empno int,
+    Ename varchar(20),
+    Job varchar(25),
+    salary number(10,5),
+    commision number(5,5),
+    deptno int
+);
+
+insert into Emp values(1,'pulkit','CEO',5000,2000,10);
+insert into Emp values(2,'Nimrat','Manager',4000,1000,20);
+insert into Emp values(3,'Aman','Salesperson',3000,100,30);
+insert into Emp values(4,'Geet','Clerk',2000,NULL,40);
+insert into Emp values(5,'Abhinav','employee',1000,NULL,50);
+
+select empno,ename from emp where deptno=10;
+
+select ename from emp where salary>2000;
+
+select ename from emp where job IN('Salesperson','Clerk');
+
+select * from emp where salary>2000 and salary<3000;
+
+select * from emp where deptno in(10,20,30);
+
+select ename from emp where commision is NULL;
+
+select deptno , salary from emp order by deptno asc , salary desc;
+
+select ename from emp where ename like '%a%a%' or ename like '%A%A%';
+
+select ename from emp where ename like '_b%' or ename like '_B%';
+
+select ename from emp where ename like 'a%a' or ename like 'A%A'or ename like 'A%a' or ename like 'a%A';
+
+select avg(salary) as AVG_SALARY from emp where deptno=10;
+
+select max(salary) as Max_SALary from emp where deptno =10;
+
+select min(salary) as Min_SALary from emp where deptno =10;
+
+select count(deptno) as Count_DEp from emp where deptno=20;
+
+select sum(salary) as TOTAL_Salary from emp;
+
+
+

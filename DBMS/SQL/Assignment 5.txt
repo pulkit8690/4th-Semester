@@ -1,0 +1,125 @@
+/*
+1. Create the following tables and insert some tuples in these tables
+the primary key for the Sailors
+bid are the foreign keys for the
+respectively.
+Sailors(sid: integer
+Boats(bid: integer
+Reserves(sid: integer
+After inserting the records in these table
+Sailors
+*/
+
+create table sailors
+(
+    sid int,
+    sname varchar(20),
+    rating int,
+    age real,
+    primary key(sid)
+);
+
+insert into Sailors values(22,'Dustin',7,45.0);
+insert into Sailors values(29,'Brutus',1,33.0);
+insert into Sailors values(31,'Lubber',8,55.5);
+insert into Sailors values(32,'Andy',8,25.5);
+insert into Sailors values(58,'Rusty',10,35.0);
+insert into Sailors values(64,'Horatio',7,35.0);
+insert into Sailors values(71,'Zorba',10,16.0);
+insert into Sailors values(74,'Horatio',9,35.0);
+insert into Sailors values(85,'Art',3,25.5);
+insert into Sailors values(95,'Bob',3,63.5);
+
+select * from Sailors;
+
+
+create table Boats
+(
+    bid int primary key,
+    bname varchar(20),
+    color varchar(20)
+);
+insert into Boats values(101,'Interlake','blue');
+insert into Boats values(102,'Interlake','red');
+insert into Boats values(103,'Cliper','green');
+insert into Boats values(104,'Marine','red');
+select * from Boats;
+
+
+create table Reserves
+(
+    sid int,
+    bid int,
+    day date,
+    foreign key(sid) references Sailors(sid),
+    foreign key(bid) references Boats(bid)
+);
+
+insert into Reserves values(22,101,To_Date('10/10/98','DD/MM/YYYY'));
+insert into Reserves values(22,102,To_Date('10/10/98','DD/MM/YYYY'));
+insert into Reserves values(22,103,To_Date('10/8/98','DD/MM/YYYY'));
+insert into Reserves values(22,104,To_Date('10/7/98','DD/MM/YYYY'));
+insert into Reserves values(31,102,To_Date('11/10/98','DD/MM/YYYY'));
+insert into Reserves values(31,103,To_Date('11/6/98','DD/MM/YYYY'));
+insert into Reserves values(31,104,To_Date('11/12/98','DD/MM/YYYY'));
+insert into Reserves values(64,101,To_Date('9/5/98','DD/MM/YYYY'));
+insert into Reserves values(64,102,To_Date('9/8/98','DD/MM/YYYY'));
+insert into Reserves values(74,103,To_Date('9/8/98','DD/MM/YYYY'));
+
+select * from Reserves;
+
+--2. Write SQL command for the
+--i) Show the names and ages of all sailors.
+select sname,age from Sailors;
+
+--ii) Show the details of the boats which are red and blue in color.
+select * from Boats where color = 'red' or color= 'blue';
+
+--iii) Find the oldest and youngest sailors’ age.
+select max(age) as oldest from Sailors;
+select min(age) as youngest from Sailors;
+
+--iv) Find the ages of sailors whose name begins and ends with B and has at leastthree characters.
+select age from Sailors where sname like 'B_%B' ;
+
+--v) Show the average rating of the sailors.
+select avg(rating) as Average from Sailors;
+
+--vi) Find all sailors with a rating above 7.
+select * from Sailors where rating>7;
+
+--vii) Find the number of boats reserved by the sailor named Horatio.
+select count(bid) as Number_Of_Boats
+ from Reserves 
+ where sid = (select sid from Sailors where sname ='Horatio');
+
+
+
+viii) Find the colors of boats reserved by Lubber.
+ix) Show the details of the sailors who have reserved
+x) Find the sid of sailors who have reserved green boats.
+xi) Find the names of sailors who have reserved boat number 103.
+xii) Find the sids and names of sailors who have reserved a red boat
+xiii) Find the names of the
+xiv) Find the names of sailors who have reserved both a red and a green boat.
+xv) Find the names of sailors who have reserved at least one boat
+Lab Assignment 5
+shown below
+ilors table, bid is the primary key for the Boats table and
+Reserves table referencing to the Sailors
+integer, sname: string, rating: integer, age: real)
+integer, bname: string, color: string)
+integer, bid: integer, day: date)
+tables, the instances should look like as follows:
+Reserves Boats
+following:
+boats which are red and blue in color.
+the sailor namedHoratio.
+the boat with bid 102.
+boat.
+sailors who have reserved a green or a blue boat
+boat.
+below. Where sid is
+sid and
+and Boats table,
+boat.

@@ -1,0 +1,70 @@
+-- Write queries to:
+-- 1. Display the system date
+select sysdate from dual;
+-- 2. Display current day
+select to_char(sysdate,'day') from dual;
+-- 3. Display current month and spell out year
+select to_char(sysdate,'MM year') from dual;
+-- 4. Display spell out current date
+select to_char(sysdate,'Ddspth') from dual;
+-- 5. Check whether it is AM or PM right now
+alter session set time_zone='+5:30';
+select to_char(current_timestamp,'AM') from dual;
+-- 6. Display the date of next Friday
+select Next_Day(sysdate,'Friday') from dual;
+-- 7. Round the system date on month
+select round(sysdate,'MM') from dual;
+-- 8. Truncate the system date on month
+select trunc(sysdate,'MM') from dual;
+-- 9. Round the system date on year
+select round(sysdate,'YYYY') from dual;
+-- 10. Truncate the system date on year
+select trunc(sysdate,'YYYY') from dual;
+-- 11. Find the day after three days
+select to_char(sysdate+3,'Day') from dual
+
+
+create table emp
+(
+    EmpNo int Primary Key,
+    Ename varchar(20),
+    Job varchar(20),
+    Salary number(20,5),
+    Commission int,
+    DeptNo int,
+    DateOfJoining date
+);
+
+insert into emp values(1,'Aaaa','CEO',5000,2000,51,'01-JAN-23');
+insert into emp values(2,'Bbbb','Manager',3000,500,55,'01-FEB-23');
+insert into emp values(3,'Cccc','Employee',2500,200,60,'28-FEB-23');
+insert into emp values(4,'Dddd','Employee',2200,100,61,'24-FEB-23');
+insert into emp values(5,'Eeee','Employee',1500,NULL,62,'01-MAR-23');
+insert into emp values(6,'Ffff','Employee',1000,NULL,63,'10-MAR-23');
+insert into emp values(7,'Gggg','Manager',2900,400,64,'20-FEB-23');
+
+Select * from emp;
+
+select to_char(DateOfJoining,'DAY') from emp;
+select Ename from emp where trim(to_char(DateOfJoining,'DAY'))='MONDAY';
+select Ename from emp where to_char(DateOfJoining,'MON')=to_char(sysdate,'MON');
+select Ename from emp where DateOfJoining between sysdate-30 and sysdate;
+
+create table train
+(
+	Tno int,
+    DateOfDeparture date,
+    TimeOfDeparture timestamp,
+    TimeOfArrival timestamp
+);
+insert into train values(121,'26-MAR-23','26-MAR-23 02:00:00 PM','26-MAR-23 08:36:50 PM');
+insert into train values(122,'26-MAR-23','26-MAR-23 03:05:58 PM','27-MAR-23 11:20:50 AM');
+insert into train values(123,'26-MAR-23','26-MAR-23 02:30:00 PM','26-MAR-23 06:00:50 PM');
+insert into train values(124,'26-MAR-23','26-MAR-23 01:56:00 PM','28-MAR-23 12:36:50 AM');
+insert into train values(125,'26-MAR-23','26-MAR-23 05:00:00 PM','27-MAR-23 09:00:50 PM');
+
+select * from train;
+
+select to_char(TimeOfDeparture,'HH:MM:SS'), to_char(TimeOfArrival,'HH:MM:SS') from train;
+select * from train where to_char(TimeOfArrival,'PM')='PM';
+select Tno from train where TimeOfDeparture between sysdate and (sysdate+1/24);

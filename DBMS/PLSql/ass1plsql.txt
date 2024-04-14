@@ -1,0 +1,130 @@
+
+-- 1) WAP to find the greatest of three numbers.
+declare  
+    a number:=5; 
+    b number:=6; 
+    c number:=7; 
+begin 
+	if a>b and  a>c then 
+			dbms_output.put_line(a||' is greator'); 
+	elsif b>a and b>c then 
+			dbms_output.put_line(b||' is greator'); 
+	else 
+			dbms_output.put_line(c||' is greator'); 
+	end if; 
+end;
+-- 2) WAP to check whether number is odd or even.
+declare
+	n number:=7;
+begin
+	if mod(n,2)=0 then
+	dbms_output.put_line(n||' is Even');
+	else
+	dbms_output.put_line(n||' is Odd');
+	end if;
+end;
+-- 3) WAP to find the grade. Consider the following:
+--  Marks > 80 A grade
+--  Marks >70 B grade
+--  Marks >50 C grade
+-- Marks > 40 D grade
+-- Marks < 40 E grade
+declare
+	Marks number:=65;
+begin
+	if Marks>80 then
+	dbms_output.put_line('A Grade');
+	elsif Marks >70 then
+    dbms_output.put_line('B Grade');
+	elsif Marks >50 then
+    dbms_output.put_line('C Grade');
+	elsif Marks >40 then
+    dbms_output.put_line('D Grade');
+	elsif Marks <40 then
+	dbms_output.put_line('E Grade');
+	else
+	dbms_output.put_line('NOT VALID');
+	end if;
+end;
+-- 4) WAP to print the table of a given number.(use for loop)
+declare
+	n number:=6;
+begin
+	for i in 1..10 loop
+	dbms_output.put_line(n||' * '||i||' = '||n*i);
+	end loop;
+end;
+-- 5) WAP to find out the factorial of a given number.(use while loop)
+declare
+	n number:=6;
+	i number:=1;
+	ans number:=1;
+begin
+	while i<=n loop
+	ans:=ans*i;
+	i:=i+1;
+	end loop;
+	dbms_output.put_line(ans);
+end;
+-- 6) WAP to find out the Fibonacci series.
+-- 7) WAP to find the reverse of a number
+declare
+    n number:=567;
+	a number;
+	b number:=0;
+begin
+    while n>1 loop
+    a:=mod(n,10);
+	b:=(b*10)+a;
+	n:=n/10;
+	end loop;
+	dbms_output.put_line(b);
+end;
+-- 8) Write PL/SQL block that performs addition (+), subtraction (-), multiplication (*) and division (/) of two numbers as choice by the user
+declare    
+    A number:=3
+    B number:=3
+    x number:=3
+begin  
+	if x=1 then 
+    c:=A+B; 
+    elsif x=2 then 
+    c:=A-B; 
+    elsif x=3 then 
+    c:=A*B; 
+    else 
+    dbms_output.put_line('Not Valid Input'); 
+    end if; 
+    dbms_output.put_line('Result is '||c); 
+end;
+
+-- 9) Write PL/SQL block to print 5, 10, 15,20 by using For Loop.
+-- 10) Write Pl/SQL block to display
+
+declare
+     h number:=to_number(to_char(SYSDATE,'HH24'))
+     w varchar
+     begin
+ if h>=4 and h<12 then
+    dbms_output.put_line('GM')
+    elsif h>=12 and h<18 then
+    dbms_output.put_line('GE')
+    else
+    dbms_output.put_line('GN')
+	end if;
+     end;
+
+
+declare
+a number:=0;
+b number:=1;
+begin
+    dbms_output.put_line(a);
+	dbms_output.put_line(b);
+	for i in 2..10 loop
+		c=a+b;
+		a:=b;
+		b:=c;
+		dbms_output.put_line(c);
+	end loop;
+end;

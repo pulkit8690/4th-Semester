@@ -1,0 +1,136 @@
+/*1. Create table emp which has the following attributes (employee
+table)
+(@empno, ename, job, sal, deptno)
+Where empno is primary key, ename is unique, job in (Prof, AP,
+and Lect), sal is not NULL, and deptno default is 10.
+Insert appropriate records, check error messages in case of
+violation and list all the constraint names for given table.*/
+
+create table emp
+(
+    empno int primary key,    --Constraint
+    ename varchar(20) unique,   --Constraint
+    job varchar(15) check(job in ('prof','AP','Lect')),   --Constraint
+    salary number not null,       --Constraint
+    deptno int default 10       --Constraint
+);
+
+insert into emp values(1001,'Pulkit','AP',5000,Default);
+insert into emp values(1002,'Sehaj','Lect',3000,Default);
+insert into emp values(1003,'ishaan','AP',5000,Default)
+insert into emp values(1004,'geet','prof',3000,21)
+insert into emp values(1005,'Abhinav','AP',2000,Default);
+
+select * from emp;
+
+
+/*
+3. Create table st
+Rno-Number
+Class-Char
+Marks-Number
+Primary key(rno,class)
+Marks>0
+Insert appropriate records, check error messages in case of
+violation and list all the constraint names for given table.*/
+
+create table st
+(
+    rno number,
+    class char,
+    marks number,
+    primary key(rno,class),
+    check (marks>0)
+);
+
+insert into st values(1,'A',50);
+insert into st values(2,'B',80);
+insert into st values(3,'C',70);
+select * from st;
+
+/*4 Create table S which has the following attributes (Salesperson
+table)
+(sno, sname, city)
+Where sno is primary key*/
+
+create table S
+(
+    sno int primary key,
+    sname varchar(20),
+    city varchar(20)
+);
+
+insert into S values(1,'Pulkit','Ludhiana');
+insert into S values(2,'Geet','Hoshiarpur');
+insert into S values(3,'Ishaan','Delhi');
+insert into S values(4,'Sehaj','Mohali');
+insert into S values(5,'Abhinav','Bilwara');
+select * from S;
+
+
+/* 5. Create table P which has the following attributes (Part table)
+(pno, pname, color)
+Where pno is primary key
+*/
+
+create table P
+(
+    pno int primary key,
+    pname varchar(20),
+    color varchar(20)
+);
+insert into P values(1,'Nutbolt','Black');
+insert into P values(2,'Scissor','Grey');
+insert into P values(3,'Screwdriver','Green');
+insert into P values(4,'Plier','Blue');
+insert into P values(5,'Drill Machine','Grey');
+select * from P;
+
+/*6. Create table SP which has the following attributes
+(sno, pno qty)
+Where combination of (sno, pno) is primary key, also sno and
+pno are foreign keys */
+create table SP
+(
+    sno int,
+    pno int,
+    qty int,
+    primary key(sno,pno),
+    foreign key(sno) references S(sno),
+    foreign key(pno) references P(pno)
+);
+
+
+
+
+--7.
+/*Create table dept which has the following attributes
+(department table)
+(deptno, dname)
+Where deptno is primary key, dname in (Acc, comp, elect)*/
+
+create table dept
+(
+    deptno int Primary Key,
+    dname varchar(20) check (dname IN('Acc', 'comp', 'elect'))
+);
+
+
+--8.
+/*Create table emp which has the following attributes (employee
+table)
+(@empno, ename, job, sal, deptno)
+Where empno is primary key, ename is unique, job in (Prof, AP,
+and Lect), sal is not NULL, and deptno is foreign key*/
+
+create table emp
+(
+    empno int Primary Key,
+    ename varchar(20) unique,
+    job varchar(20) check (job IN('Prof','AP','Lect')),
+    sal number(10,2) not NULL,
+    deptno int,
+    foreign key(deptno) references dept(deptno)
+);
+
+

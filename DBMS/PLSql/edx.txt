@@ -1,0 +1,47 @@
+create table Author(
+     Id int primary key,
+    Name varchar (20) not null,
+    Birth_Year int not null,
+    Death_Year int
+);
+create table Book(
+     Id int primary key,
+    Author_Id int not null references Author (Id),
+    Title varchar (50) not null,
+    Publish_Year int not null,
+    Publishing_House varchar (50) not null,
+     Rating int not null
+);
+create table Adaptation(
+    Book_ID int primary key references Book(Id),
+    Type varchar (50)not null,
+    Title varchar (50)not null,
+    Release_Year int not null,
+     Rating int not null
+ );
+insert into Author values (1, 'stephen King', 1947, 2010);
+insert into Author values (2, 'J.K. Rowling', 1965, 2020);
+insert into Author values (3, *Chetan Bhagat', 1974, NULL);
+insert into Book values (1, 1, 'Carrie', 1974, 'Doubleday', 4);
+insert into Book values (2, 1, "The Shining 1977, 'Doubleday', 6);
+insert into Book values (3, 2, "Harry Potter and the Philosopher stone', 1997, 'Bloomsbury' ,7);
+insert into Book values (4, 2, "Harry Potter and the chamber of Secrets', 1998, 'Bloomsbury' ,8);
+insert into Book values (5, 3, 'Five Point Someone', 2004, *Rupa & Co. :'9);
+insert into Book values (6, 3, '2 states',2009,'Rupa & Co. :',8);
+insert into Adaptation values (3,
+insert into Adaptation values
+insert into Adaptation values (5,
+insert into Adaptation values (6,
+
+“Marry Potter and the Philosopher’’s Stone’,
+“Marry Potter and the Chamber of Secrets’,
+“3 Idiots’, 2009, 9)5
+“2 States’, 2014, 9);
+
+   
+  
+
+    
+
+ 
+

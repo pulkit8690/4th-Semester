@@ -1,0 +1,34 @@
+create table Student
+(
+    Rno number,
+    Name varchar(25),
+    DOB varchar(20),
+    Gender varchar(20),
+    Class varchar(20),
+    College varchar(25),
+    City varchar(15),
+    Marks int
+);
+
+
+insert into Student values(5,'Pulkit',To_Date('09/06/2003','DD/MM/YYYY'),'Male','COE10','TIET','Patiala',90);
+insert into Student values(6,'Aman',To_Date('10/06/2003','DD/MM/YYYY'),'Male','COE24','CU','Patiala',25);
+insert into Student values(7,'Nimrat',To_Date('07/08/2003','DD/MM/YYYY'),'Female','C-4','GSMC','Patiala',100);
+insert into Student values(8,'Harleen',To_Date('02/01/2003','DD/MM/YYYY'),'Female','C-10','GNDU','Amritsar',29);
+insert into Student values(9,'Geet',To_Date('11/11/2003','DD/MM/YYYY'),'Male','C-13','GNE','Patiala',70);
+
+select * from Student;
+
+desc Student;
+
+select Rno, name, class from Student where city='Patiala';
+
+select * from Student order by Marks asc;
+
+update Student set Marks=89 where Rno=5;
+
+update Student set name='Abhinav',city='Jaipur' where Rno=9;
+
+delete from Student where city='Amritsar';
+
+delete from Student where Marks<30; 
