@@ -1,0 +1,29 @@
+What is Prolog and what are its main features?
+Prolog is a declarative programming language used for implementing artificial intelligence and computational linguistics. It is based on the idea of logical programming, which allows users to define relationships and rules using logical predicates. Prolog's main features include its ability to perform symbolic computation, pattern matching, unification, and backtracking.
+
+What is a predicate in Prolog?
+A predicate in Prolog is a logical expression that describes a relationship between one or more variables. Predicates are used to define facts and rules, which form the basis of Prolog's knowledge base.
+
+What is the difference between a fact and a rule in Prolog?
+A fact in Prolog is a predicate that is always true, while a rule is a predicate that is true under certain conditions. Facts are used to define relationships that are always true, while rules are used to define relationships that are true only under certain conditions.
+
+What is unification in Prolog and how is it used in querying the knowledge base?
+Unification in Prolog is the process of matching two terms and binding their variables to make them equal. Unification is used in querying the knowledge base by matching a query with the facts and rules in the knowledge base to find solutions that satisfy the query.
+
+What is backtracking in Prolog and how is it useful in finding solutions?
+Backtracking in Prolog is the process of exploring different paths to find a solution to a problem. When Prolog encounters a dead-end while searching for a solution, it backtracks to the last decision point and explores a different path. Backtracking is useful in finding solutions because it allows Prolog to explore all possible solutions.
+
+How are lists represented in Prolog and what are some common operations on lists?
+Lists in Prolog are represented as a sequence of terms enclosed in square brackets. Some common operations on lists include appending lists, splitting lists, and finding the length of a list.
+
+How do you define a recursive predicate in Prolog?
+To define a recursive predicate in Prolog, you need to define a base case and a recursive case. The base case defines the predicate's behavior when it reaches the end of the recursion, while the recursive case defines the predicate's behavior when it needs to call itself with a new argument.
+
+What is the cut (!) operator in Prolog and how is it used to control backtracking?
+The cut (!) operator in Prolog is used to control backtracking by preventing Prolog from exploring alternative solutions beyond a certain point. When Prolog encounters a cut operator, it discards any alternative solutions that it has already explored and commits to the current solution.
+
+What is the difference between a dynamic and a static predicate in Prolog?
+A dynamic predicate in Prolog is a predicate whose definition can be modified at runtime, while a static predicate is a predicate whose definition is fixed at compile time. Dynamic predicates are used to modify the knowledge base during program execution.
+
+How can you use Prolog to solve problems involving logic and inference, such as the classic "Socrates is a man, all men are mortal, therefore Socrates is mortal" syllogism?
+You can use Prolog to solve problems involving logic and inference by defining the knowledge base as a set of facts and rules, and then querying the knowledge base using logical predicates to find solutions that satisfy the problem statement. For example, to solve the "Socrates is a man, all men are mortal, therefore Socrates is mortal" syllogism, you could define the facts "Socrates is a man" and "all men are mortal" and the rule "if X is
